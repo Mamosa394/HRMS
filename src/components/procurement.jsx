@@ -265,9 +265,9 @@ const Procurement = () => {
                 <td>{new Date(vehicle.lastUpdated).toLocaleString()}</td>
                 <td>
                   {/* Update Button */}
-                  <button onClick={() => setVehicleToUpdate(vehicle)} style={{ marginRight: "10px" }}>Update</button>
+                  <button onClick={() => setVehicleToUpdate(vehicle)} style={{ marginRight: "10px", backgroundColor: "green" }}>Update</button>
                   {/* Delete Button */}
-                  <button onClick={() => deleteVehicle(vehicle.vin)}>Delete</button>
+                  <button onClick={() => deleteVehicle(vehicle.vin)} style={{backgroundColor: "red"}}>Delete</button>
                 </td>
               </tr>
             ))}
