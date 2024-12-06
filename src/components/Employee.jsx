@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/professional.css';
 
 const EmployeeManagement = () => {
     // State to store employee form data

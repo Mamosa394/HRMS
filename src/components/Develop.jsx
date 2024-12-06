@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/Recruits.css';
+import '../styles/develop.css';
 
 const EmployeeManagement = () => {
   const [formData, setFormData] = useState({
@@ -87,7 +87,7 @@ const EmployeeManagement = () => {
 
     // Determine points to add based on the qualification type
     let pointsToAdd = 0;
-    if (qualificationType === 'academic') {
+      if (qualificationType === 'academic') {
       pointsToAdd = 5; // +5 for academic qualifications
     } else if (qualificationType === 'professional') {
       pointsToAdd = 7; // +7 for professional qualifications
