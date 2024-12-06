@@ -88,11 +88,11 @@ body {
   
   th {
     background-color: #007bff;
-    color: white;
+    color: greenyellow;
   }
   
   td {
-    background-color: #f9f9f9;
+    background-color: gray;
   }
   
   /* Qualification form within employee list */

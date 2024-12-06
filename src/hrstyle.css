@@ -1,0 +1,90 @@
+.navbar{
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(245, 240, 240, 0.263);
+    backdrop-filter: blur(10px);
+}
+
+.logo img{
+    width: 100px;
+    height: 60px;
+
+    border-radius: 10px;
+}
+
+.navbar ul{
+    display: flex;
+    gap: 20px;
+   
+}
+
+.navbar a{
+    color: rgb(26, 25, 25);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.active{
+    border-bottom: 2px solid #e0dbdf;
+}
+
+.navbar a:hover{
+    border-bottom: 2px solid #8bb9bb;
+}
+
+.wrapper{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading{
+    background: rgba(245, 240, 240, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.wrapper{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email{
+    text-align: right;
+}
+
+.footer1{
+    display:inline-flex;
+    gap:330px;
+}
+.foot{
+    text-align: center;
+}
+
+.footing {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color:black;
+    text-align: center;
+  }
+
+  body{
+  background-image: url('assets/images/bg.jpg');  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  }

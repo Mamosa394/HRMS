@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/develop.css';
 
 // Custom Modal Component for Update
 const UpdateVehicleModal = ({ vehicle, onClose, onUpdate }) => {
@@ -62,7 +63,7 @@ const Procurement = () => {
   // Fetch vehicles from the backend
   const fetchVehicles = async () => {
     try {
-      const response = await fetch('/api/vehicles');
+      const response = await fetch('http://localhost:5000/api/vehicles');  // Ensure this is the correct backend URL
       const data = await response.json();
       setVehicles(data);
     } catch (error) {
@@ -101,7 +102,7 @@ const Procurement = () => {
     }
 
     try {
-      const response = await fetch('/api/vehicles', {
+      const response = await fetch('http://localhost:5000/api/vehicles', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -111,8 +112,8 @@ const Procurement = () => {
 
       if (response.ok) {
         // Successfully added the vehicle, fetch the updated list
-        
         setNewVehicle({ vin: "", model: "", mileage: "", driver: "", status: "available" }); // Reset form
+        fetchVehicles(); // Refresh vehicle list
       } else {
         alert("Error adding vehicle.");
       }
@@ -124,7 +125,7 @@ const Procurement = () => {
   // Update vehicle details in the backend
   const updateVehicle = async (vin, updatedData) => {
     try {
-      const response = await fetch(`/api/vehicles/${vin}`, {
+      const response = await fetch(`http://localhost:5000/api/vehicles/${vin}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -135,6 +136,7 @@ const Procurement = () => {
       if (response.ok) {
         // Successfully updated, fetch updated list
         fetchVehicles();
+        setIsUpdateModalOpen(false);  // Close modal
       } else {
         alert("Error updating vehicle.");
       }
@@ -147,7 +149,7 @@ const Procurement = () => {
   const deleteVehicle = async (vin) => {
     if (window.confirm("Are you sure you want to delete this vehicle?")) {
       try {
-        const response = await fetch(`/api/vehicles/${vin}`, {
+        const response = await fetch(`http://localhost:5000/api/vehicles/${vin}`, {
           method: 'DELETE',
         });
 
@@ -176,7 +178,7 @@ const Procurement = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Vehicle Procurement System</h1>
+      <h1>Vehicle Tracking Form</h1>
 
       {/* Add New Vehicle Form */}
       <div style={{ marginBottom: "20px" }}>
@@ -265,7 +267,7 @@ const Procurement = () => {
                 <td>{new Date(vehicle.lastUpdated).toLocaleString()}</td>
                 <td>
                   {/* Update Button */}
-                  <button onClick={() => setVehicleToUpdate(vehicle)} style={{ marginRight: "10px", backgroundColor: "green" }}>Update</button>
+                  <button onClick={() => { setVehicleToUpdate(vehicle); setIsUpdateModalOpen(true); }} style={{ marginRight: "10px", backgroundColor: "green" }}>Update</button>
                   {/* Delete Button */}
                   <button onClick={() => deleteVehicle(vehicle.vin)} style={{backgroundColor: "red"}}>Delete</button>
                 </td>
